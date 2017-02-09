@@ -1,0 +1,39 @@
+<!-- <!DOCTYPE html>
+<html>
+<body>
+    <input type="button" id="hw" value="Hello world" />
+    <script type="text/javascript" src="http://127.0.0.1:8000/script2.js"></script>
+</body>
+</html> -->
+
+<p>time : <span id="time"></span></p>
+<input type="button" id="execute" value="execute" />
+
+<script>
+// document.querySelector('input').addEventListener('click', function(event){
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('GET', 'http://127.0.0.1:8000/');
+//     xhr.onreadystatechange = function(){
+//         if(xhr.readyState === 4 && xhr.status === 200){
+//           var myArr = JSON.parse(xhr.responseText);
+//           document.querySelector('#time').innerHTML = myArr.OK;
+//         }
+//     }
+//     xhr.send();
+// });
+
+document.querySelector('input').addEventListener('click', function(event){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://127.0.0.1:8000/chaincode/');
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status === 200){
+        //  document.querySelector('#time').innerHTML = xhr.responseText;
+        var myArr = JSON.parse(xhr.responseText);
+        document.querySelector('#time').innerHTML = myArr.result;
+        }
+    }
+    xhr.send();
+});
+
+
+</script>
